@@ -8,6 +8,175 @@
 @import url('./reset.css');
 @import url('./base.css');
 
+
+/* ---------- Загальні налаштування ---------- */
+:root {
+  --accent: #4f6ef7;
+  /* синій кнопки */
+  --muted: #6b7280;
+  --card-border: #e6e6e6;
+  --bg: #fafafa;
+  --text: #222;
+}
+
+body {
+  font-family: "Inter", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 24px;
+}
+
+/* Контейнер сторінки (центрування) */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* ---------- Форма пошуку ---------- */
+.header-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.form input[type="text"] {
+  padding: 8px 12px;
+  width: 300px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+}
+
+.form input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(79, 110, 247, 0.08);
+  border-color: var(--accent);
+}
+
+.form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.form button:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Галерея (сітка) ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 колонки на десктопі */
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Адаптивність */
+@media (max-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gallery-item {
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+.thumb {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.info-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.info-cell b {
+  font-weight: 700;
+  font-size: 12px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.info-cell span {
+  font-weight: 400;
+  color: #666;
+  font-size: 12px;
+}
+
+.info-cell .value {
+  margin-top: 2px;
+  color: #111;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  transition: transform .16s ease;
+}
+
+.gallery-item:active {
+  transform: translateY(-1px);
+}
+
+
 .load-more {
   display: none;
   margin: 20px auto;
